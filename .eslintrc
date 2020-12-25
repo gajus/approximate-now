@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "canonical",
+    "canonical/node",
+    "canonical/typescript"
+  ],
+  "root": true,
+  "rules": {
+    "node/no-missing-import": 0
+  }
+}
