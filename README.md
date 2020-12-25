@@ -49,6 +49,8 @@ approximateTime.now; // 0000000000050
 approximateTime.now; // 0000000000050
 approximateTime.now; // 0000000000050
 
+```
+
 ## benchmark
 
 ```
