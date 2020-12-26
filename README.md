@@ -10,7 +10,7 @@ Approximate (fast) current UNIX time.
 
 ## Motivation
 
-Sometimes you don't care about the exact time the event took place, but rather need to know approximately when. If your use case is performance senstive, then `Date.now()` might not be the best option because it has a [measurable impact](#benchmark) to the performance. `approximate-now` provides an approximate (to the error of 50ms) time without a performance penalty of `Date.now()`.
+Sometimes you don't care about the exact time the event took place, but rather need to know approximately when. If your use case is performance sensitive, then `Date.now()` might not be the best option because it has a [measurable impact](#benchmark) to the performance. `approximate-now` provides an approximate (to the error of 50ms) time without a performance penalty of `Date.now()`.
 
 ## Usage
 
