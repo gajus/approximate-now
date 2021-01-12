@@ -23,12 +23,16 @@ Object.defineProperty(
   },
 );
 
-setInterval(
+const interval = setInterval(
   () => {
     approximateTime.now = 50 * Math.ceil(Date.now() / 50);
   },
   50,
-).unref();
+);
+
+if (interval && interval.unref) {
+  interval.unref();
+}
 
 export {
   approximateTime,
