@@ -1,5 +1,7 @@
-let now = 50 * Math.ceil(Date.now() / 50);
-let maxNow = 50 * Math.ceil((now + 50) / 50);
+const ms = 50;
+
+let now = ms * Math.ceil(Date.now() / ms);
+let maxNow = ms * Math.ceil((now + ms) / ms);
 
 const approximateTime = {
   now,
@@ -18,16 +20,16 @@ Object.defineProperty(
     },
     set: (nextNow) => {
       now = nextNow;
-      maxNow = 50 * Math.ceil((now + 50) / 50);
+      maxNow = ms * Math.ceil((now + ms) / ms);
     },
   },
 );
 
 const interval = setInterval(
   () => {
-    approximateTime.now = 50 * Math.ceil(Date.now() / 50);
+    approximateTime.now = ms * Math.ceil(Date.now() / ms);
   },
-  50,
+  ms,
 );
 
 if (interval && interval.unref) {
