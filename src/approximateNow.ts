@@ -22,12 +22,7 @@ const approximateTime = {
   },
 };
 
-const interval = setInterval(
-  () => {
-    step();
-  },
-  ms,
-);
+const interval = setInterval(step, ms);
 
 interval.unref();
 
