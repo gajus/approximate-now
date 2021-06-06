@@ -1,19 +1,19 @@
 const ms = 50;
 
-let now = ms * Math.ceil(Date.now() / ms);
-let maxNow = ms * Math.ceil((now + ms) / ms);
+let __0 = ms * Math.ceil(Date.now() / ms);
+let __1 = ms * Math.ceil((__0 + ms) / ms);
 
 const approximateTime = {
   get now () {
-    if (now < maxNow) {
-      return now++;
+    if (__0 < __1) {
+      return __0++;
     }
 
-    return maxNow;
+    return __1;
   },
   set now (nextNow) {
-    now = nextNow;
-    maxNow = ms * Math.ceil((now + ms) / ms);
+    __0 = nextNow;
+    __1 = ms * Math.ceil((__0 + ms) / ms);
   },
 };
 
