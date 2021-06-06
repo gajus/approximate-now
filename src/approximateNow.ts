@@ -1,27 +1,17 @@
 const ms = 50;
 
-let __0 = ms * Math.ceil(Date.now() / ms);
-let __1 = ms * Math.ceil((__0 + ms) / ms);
+let __0 = NaN;
+let __1 = NaN;
 
 const step = function () {
   __0 = ms * Math.ceil(Date.now() / ms);
-  __1 = ms * Math.ceil((__0 + ms) / ms);
+  __1 = ms + __0;
+};
+
+void step();
+
+setInterval(step, ms).unref();
+
+export function now() {
+  return __0 < __1 ? __0++ : __1;
 }
-
-const approximateTime = {
-  get now () {
-    if (__0 < __1) {
-      return __0++;
-    }
-
-    return __1;
-  },
-};
-
-const interval = setInterval(step, ms);
-
-interval.unref();
-
-export {
-  approximateTime,
-};

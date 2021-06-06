@@ -4,7 +4,7 @@ import {
   Suite,
 } from 'benchmark';
 import {
-  approximateTime,
+  now,
 } from '../src/approximateNow';
 
 (() => {
@@ -25,10 +25,9 @@ import {
   );
 
   suite.add(
-    'approximateTime.now',
+    'now()',
     () => {
-      // eslint-disable-next-line no-unused-expressions
-      approximateTime.now;
+      now();
     },
   );
 
