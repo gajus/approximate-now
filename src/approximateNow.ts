@@ -16,10 +16,6 @@ const approximateTime = {
 
     return __1;
   },
-  set now (nextNow) {
-    __0 = nextNow;
-    __1 = ms * Math.ceil((__0 + ms) / ms);
-  },
 };
 
 const interval = setInterval(step, ms);
