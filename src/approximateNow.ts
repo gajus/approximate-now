@@ -32,9 +32,7 @@ const interval = setInterval(
   ms,
 );
 
-if (interval && interval.unref) {
-  interval.unref();
-}
+interval.unref();
 
 export {
   approximateTime,
