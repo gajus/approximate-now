@@ -1,39 +1,17 @@
-let now = 50 * Math.ceil(Date.now() / 50);
-let maxNow = 50 * Math.ceil((now + 50) / 50);
+const ms = 50;
 
-const approximateTime = {
-  now,
+let __0 = NaN;
+let __1 = NaN;
+
+const step = function () {
+  __0 = ms * Math.ceil(Date.now() / ms);
+  __1 = ms + __0;
 };
 
-Object.defineProperty(
-  approximateTime,
-  'now',
-  {
-    get: () => {
-      if (now < maxNow) {
-        return now++;
-      }
+void step();
 
-      return maxNow;
-    },
-    set: (nextNow) => {
-      now = nextNow;
-      maxNow = 50 * Math.ceil((now + 50) / 50);
-    },
-  },
-);
+setInterval(step, ms).unref();
 
-const interval = setInterval(
-  () => {
-    approximateTime.now = 50 * Math.ceil(Date.now() / 50);
-  },
-  50,
-);
-
-if (interval && interval.unref) {
-  interval.unref();
+export function now() {
+  return __0 < __1 ? __0++ : __1;
 }
-
-export {
-  approximateTime,
-};
