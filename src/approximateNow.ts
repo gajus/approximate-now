@@ -11,14 +11,14 @@ Object.defineProperty(
   approximateTime,
   'now',
   {
-    get: () => {
+    get () {
       if (now < maxNow) {
         return now++;
       }
 
       return maxNow;
     },
-    set: (nextNow) => {
+    set (nextNow) {
       now = nextNow;
       maxNow = ms * Math.ceil((now + ms) / ms);
     },
