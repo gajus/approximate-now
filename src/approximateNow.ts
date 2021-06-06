@@ -4,26 +4,18 @@ let now = ms * Math.ceil(Date.now() / ms);
 let maxNow = ms * Math.ceil((now + ms) / ms);
 
 const approximateTime = {
-  now,
-};
-
-Object.defineProperty(
-  approximateTime,
-  'now',
-  {
-    get () {
+    get now () {
       if (now < maxNow) {
         return now++;
       }
 
       return maxNow;
     },
-    set (nextNow) {
+    set now (nextNow) {
       now = nextNow;
       maxNow = ms * Math.ceil((now + ms) / ms);
     },
-  },
-);
+  };
 
 const interval = setInterval(
   () => {
